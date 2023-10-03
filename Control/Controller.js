@@ -1,15 +1,15 @@
 import Model from "../Model/Model.js"
-import ElemView from "../View/elemView.js"
+import JatekTerView from "../View/JatekTerView.js";
 
 class Controller{
     constructor(){
         const MODEL = new Model();
-        const ELEM = new ElemView($(".negyzet"));
+        new JatekTerView($(".negyzet"));
 
         $(window).on("kivalasztas", function(event){
-            MODEL.setAllapot();
-            ELEM.setErtek(MODEL.getAllapot());
-            
+            this.MODEL.setAllapot(event.detail.getIndex());
+            event.detail.setErtek(MODEL.getAllapot());
+            console.log(this.MODEL.vegeVanE());
         })
         
     }

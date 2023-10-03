@@ -1,14 +1,24 @@
 class ElemView{
-    constructor(szuloElem){
+    #index;
+    #allapot
+    constructor(szuloElem, index){
         this.szuloElem = szuloElem;
+        this.#index = index;
+        this.#allapot = true;
         this.#htmlLetrehozasa();
         this.elem = $(".elem:last-child")
-        this.pElem = this.szuloElem.children("div").children("p");
+        this.pElem = this.elem.children("p");
         this.elem.on("click", ()=>{
-            this.#esemenyLetrehozas("kivalasztas");
-            console.log("ASD");
+            if (this.#allapot) {
+                this.#esemenyLetrehozas("kivalasztas");
+                this.#allapot = false;
+            }
         })
         
+    }
+
+    getIndex(){
+        return this.#index;
     }
 
     #htmlLetrehozasa(){
@@ -23,7 +33,7 @@ class ElemView{
     }
 
     #esemenyLetrehozas(esemenynev){
-        const esemenyem = new CustomEvent(esemenynev);
+        const esemenyem = new CustomEvent(esemenynev, {detail: this});
         window.dispatchEvent(esemenyem);
     }
 
