@@ -1,0 +1,18 @@
+.negyzet{
+    
+}
+
+.elem{
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+}
+
+.elem p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    margin: 0;
+    padding: 0;
+}
