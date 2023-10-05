@@ -7,7 +7,6 @@ class Controller{
         new JatekTerView($(".negyzet"));
 
         $(window).on("kivalasztas", function(event){
-            console.log(this.MODEL);
             MODEL.setAllapot(event.detail.getIndex());
             event.detail.setErtek(MODEL.getAllapot());
             console.log(MODEL.vegeVanE());
