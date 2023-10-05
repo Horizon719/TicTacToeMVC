@@ -1,4 +1,4 @@
-import ElemView from "./elemView.js";
+import ElemView from "./ElemView.js";
 
 class JatekTerView{
     constructor(szuloElem){
