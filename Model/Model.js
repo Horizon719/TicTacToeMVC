@@ -23,16 +23,23 @@ class Model{
         return this.#allapot;
     }
 
+    kovetkezoAllapot(){
+        if (this.#allapot === 'X') {
+            return 'O';
+        }
+        return 'X';
+    }
+
     vegeVanE(){
-        let eredmeny = this.#vizszintesEll();
+        let eredmeny = this.#vizszintesEll() + "@" + this.#fuggolegesEll() + "@" + this.#atloEll();
         if (eredmeny.indexOf("XXX")>-1) {
             return "X nyert";
         }else if(eredmeny.indexOf("OOO")>-1){
-            
+            return "O nyert";
         } else if (this.#lepes >= 9) {
             return "Döntetlen";
         }
-        return "nincs vége";
+        return "nincsvége";
     }
 
     #vizszintesEll(){
@@ -44,5 +51,26 @@ class Model{
             }
         }
         return vText;
+    }
+
+    #fuggolegesEll() {
+        let ellY = "";
+        for (let index = 0; index < 3; index++) {
+            ellY +=
+                this.#allapotLista[index] +
+                this.#allapotLista[index + 3] +
+                this.#allapotLista[index + 6];
+
+            ellY += "@";
+        }
+
+        return ellY;
+    }
+
+    #atloEll() {
+        let ell = this.#allapotLista[0] + this.#allapotLista[4] + this.#allapotLista[8] + "@";
+        ell += this.#allapotLista[2] + this.#allapotLista[4] + this.#allapotLista[6];
+
+        return ell;
     }
 } export default Model

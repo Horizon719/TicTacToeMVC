@@ -4,6 +4,20 @@ article{
     align-items: center;
 }
 
+.infopanel{
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(200, 0, 0);
+    border: 10px dotted rgb(200, 0, 0);
+    padding-bottom: 10px;
+}
+
+h2{
+    text-decoration: underline;
+}
+
 .negyzet{
     width: 400px;
     display: flex;
